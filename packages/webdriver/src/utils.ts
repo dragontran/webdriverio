@@ -118,7 +118,8 @@ export function isSuccessfulResponse (statusCode?: number, body?: WebDriverRespo
         (
             body.value.message.toLowerCase().startsWith('no such element') ||
             // Appium
-            body.value.message === 'An element could not be located on the page using the given search parameters.' ||
+            body.value.message.includes('An element could not be located on the page using the given search parameters.') ||
+            // make the string search more flexible 
             // Internet Explorter
             body.value.message.toLowerCase().startsWith('unable to find element')
         )
